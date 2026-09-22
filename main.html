@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Русский язык - Игры для началки</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <header>
+        <h1>🎓 Русский язык для малышей</h1>
+        <p>Учимся играя!</p>
+    </header>
+
+    <nav>
+        <button class="nav-btn active" data-game="menu">🏠 Меню</button>
+        <button class="nav-btn" data-game="letters">🔤 Буквы</button>
+        <button class="nav-btn" data-game="words">📝 Слова</button>
+        <button class="nav-btn" data-game="syllables">🎵 Слоги</button>
+    </nav>
+
+    <main>
+        <!-- Главное меню -->
+        <section id="menu" class="game-section active">
+            <h2>Выбери игру!</h2>
+            <div class="game-cards">
+                <div class="card" onclick="switchGame('letters')">
+                    <div class="card-icon">🔤</div>
+                    <h3>Найди букву</h3>
+                    <p>Нажимай на нужные буквы</p>
+                </div>
+                <div class="card" onclick="switchGame('words')">
+                    <div class="card-icon">📝</div>
+                    <h3>Собери слово</h3>
+                    <p>Составь слово из букв</p>
+                </div>
+                <div class="card" onclick="switchGame('syllables')">
+                    <div class="card-icon">🎵</div>
+                    <h3>Слоги</h3>
+                    <p>Сосчитай слоги в слове</p>
+                </div>
+            </div>
+        </section>
+
+        <!-- Игра 1: Найди букву -->
+        <section id="letters" class="game-section">
+            <h2>🔤 Найди все буквы «А»</h2>
+            <p class="task" id="letter-task">Нажимай на буквы А</p>
+            <div class="letters-grid" id="letters-grid"></div>
+            <div class="score">Счёт: <span id="letter-score">0</span></div>
+            <button class="btn" onclick="startLetterGame()">🔄 Заново</button>
+        </section>
+
+        <!-- Игра 2: Собери слово -->
+        <section id="words" class="game-section">
+            <h2>📝 Собери слово</h2>
+            <p class="task">Нажимай на буквы в правильном порядке</p>
+            <div class="word-hint" id="word-hint">🍎</div>
+            <div class="word-slots" id="word-slots"></div>
+            <div class="letters-pool" id="letters-pool"></div>
+            <div class="score">Счёт: <span id="word-score">0</span></div>
+            <button class="btn" onclick="startWordGame()">🔄 Новое слово</button>
+        </section>
+
+        <!-- Игра 3: Слоги -->
+        <section id="syllables" class="game-section">
+            <h2>🎵 Сколько слогов?</h2>
+            <p class="task">Посчитай, сколько слогов в слове</p>
+            <div class="syllable-word" id="syllable-word">МАМА</div>
+            <div class="syllable-answers" id="syllable-answers">
+                <button class="answer-btn" onclick="checkSyllable(1)">1</button>
+                <button class="answer-btn" onclick="checkSyllable(2)">2</button>
+                <button class="answer-btn" onclick="checkSyllable(3)">3</button>
+                <button class="answer-btn" onclick="checkSyllable(4)">4</button>
+            </div>
+            <div class="feedback" id="syllable-feedback"></div>
+            <div class="score">Счёт: <span id="syllable-score">0</span></div>
+        </section>
+    </main>
+
+    <footer>
+        <p>© 2024 Русский язык для начальной школы ❤️</p>
+    </footer>
+
+    <script src="script.js"></script>
+</body>
+</html>
